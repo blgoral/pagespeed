@@ -80,14 +80,13 @@ Testimonials videos|Add lazyload or data-player and data-embe
 ```html
 <!-- Dynamic Content -->
 <script>
-    function captcha() {
-    // Adds an element to the document
-    var p = document.getElementsByTagName('head')[0];
-    var newElement = document.createElement("script");
-    newElement.setAttribute('src', 'https://www.google.com/recaptcha/api.js');
-    p.appendChild(newElement);
-}
-if( window.screen.width >= 600  ) {	captcha(); }
+    setTimeout(function(){
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = "https://www.google.com/recaptcha/api.js";
+     head.appendChild(script);
+   }, 3000);
 </script>	
 ```
 - Add lazy loading to images by adding class "lazyload" loading=“lazy” and chang src to data-src…  and link to lazyload script at the bottom of the html
